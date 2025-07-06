@@ -4,7 +4,7 @@
 
 Athena, dijital dünyada siber güvenlik farkındalığını artırmak ve kullanıcıları olası tehditlere karşı güçlendirmek için tasarlanmış kişisel bir yapay zeka eğitmenidir. Kullanıcıların dijital ayak izini analiz etmeyi, interaktif eğitim modülleri sunmayı ve akıllı bir chatbot ile anında destek sağlamayı hedeflemektedir.
 
-## 👤 Takımımız: Imagine 4
+## 👤 Takımımız:
 
 | | <div align="center">Name</div> | <div align="center">Title</div> |
 | :-----------: | :---------- | :---------- |
