@@ -18,6 +18,8 @@ Athena, dijital dünyada siber güvenlik farkındalığını artırmak ve kullan
 
 Projemizi Scrum metodolojisiyle yönetiyoruz. ClickUp'ı ana proje yönetim aracımız olarak kullanıyor ve Daily Scrum toplantıları, Sprint Review'ler ve Sprint Retrospektifleri düzenli olarak yapıyoruz.
 
+Proje görevlerimizin detaylı takibi için [ClickUp Sprint 1 Görevleri](https://app.clickup.com/90181414742/v/li/901809301383) linkini ziyaret edebilirsiniz.
+
 ### Git Branching Stratejisi
 
 Geliştirme sürecimizde, `main` ve `develop` ana dallarına ek olarak özellik, hata düzeltme ve sürüm yönetimi için aşağıdaki dallanma stratejisini izliyoruz:
@@ -33,7 +35,9 @@ Geliştirme sürecimizde, `main` ve `develop` ana dallarına ek olarak özellik,
 
 ### 📊 Sprint 1 Raporu: Hızlı Başlangıç ve Temel Entegrasyon
 
-**Dönem:** 3 Temmuz 2025 – 6 Temmuz 2025
+Ayrıntılı Sprint 1 raporumuzu [buradan](assets/Athena-sprint-1.pdf) inceleyebilirsiniz.
+
+**Dönem:** 20 Haziran 2025 – 6 Temmuz 2025
 
 #### **Sprint Hedefi:**
 Temel proje altyapısını kurmak, güvenli kimlik doğrulama ve chatbotun ilk basit sürümünü devreye almak.
@@ -63,14 +67,14 @@ Aşağıdaki ekran görüntüsü, Sprint 1'deki görevlerimizin ClickUp board ü
 #### **Ürün Durumu: Ekran Görüntüleri**
 
 <details>
-  <summary>Açmak için tıklayın</summary>
+    <summary>Açmak için tıklayın</summary>
 
-  * **Web Uygulaması - Landing Page:** Athena'nın dijital kimliği koruma vizyonunu yansıtan açılış sayfası.
-      ![Athena Web Landing Page](https://github.com/user-attachments/assets/b8f8c77f-f99b-407e-a10c-3106d62b3234)
-  * **Web Uygulaması - Ana Sayfa Yapısı:** Dijital ayak izi analizi ve simülasyonlu eğitim gibi temel modülleri tanıtan ana sayfa yapısı.
-      ![Athena Web Main Page Structure](https://github.com/user-attachments/assets/6841b40d-cf1b-4a55-bb4e-4e6de6c9cb63)
-  * **Athena Chatbot - İlk Yanıt Örneği:** Chatbotun temel bir siber güvenlik sorusuna (sızma testi nedir?) verdiği ilk yanıt.
-      ![Athena Chatbot Response](https://github.com/user-attachments/assets/6d996675-6d56-4116-a984-831f17d2c67f)
+    * **Web Uygulaması - Landing Page:** Athena'nın dijital kimliği koruma vizyonunu yansıtan açılış sayfası.
+        ![Athena Web Landing Page](https://github.com/user-attachments/assets/b8f8c77f-f99b-407e-a10c-3106d62b3234)
+    * **Web Uygulaması - Ana Sayfa Yapısı:** Dijital ayak izi analizi ve simülasyonlu eğitim gibi temel modülleri tanıtan ana sayfa yapısı.
+        ![Athena Web Main Page Structure](https://github.com/user-attachments/assets/6841b40d-cf1b-4a55-bb4e-4e6de6c9cb63)
+    * **Athena Chatbot - İlk Yanıt Örneği:** Chatbotun temel bir siber güvenlik sorusuna (sızma testi nedir?) verdiği ilk yanıt.
+        ![Athena Chatbot Response](https://github.user-attachments/assets/6d996675-6d56-4116-a984-831f17d2c67f)
 </details>
 
 #### **Sprint Review Özeti:**
