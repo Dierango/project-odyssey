@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 from datetime import datetime
 
 from ..database.database import get_db
@@ -26,7 +27,7 @@ def database_health(db: Session = Depends(get_db)):
     """
     try:
         # Execute a simple query to check if the database is responding
-        db.execute("SELECT 1")
+        db.execute(text("SELECT 1"))
         return {
             "database": "connected",
             "timestamp": datetime.now().isoformat()

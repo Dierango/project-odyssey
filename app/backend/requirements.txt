@@ -1,6 +1,9 @@
-fastapi == 0.115.10
-uvicorn == 0.35.0
-SQLAlchemy == 2.0.41
-psycopg2-binary == 2.9.10
-pydantic-settings == 2.10.1
-python-dotenv==1.0.1
+fastapi==0.115.10
+uvicorn==0.34.1
+sqlalchemy==2.0.41
+psycopg2-binary==2.9.10
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.5.0
+pydantic-settings==2.4.0
+pytest==7.4.3
+httpx==0.25.2

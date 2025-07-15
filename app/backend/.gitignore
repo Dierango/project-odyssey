@@ -77,3 +77,7 @@ coverage.xml
 
 # FastAPI specific
 .pytest_cache/
+
+docker.compose.yml
+
+.devcontainer
