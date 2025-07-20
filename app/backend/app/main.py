@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from app.routes import health, auth
 from app.database.database import engine, Base
+from dotenv import load_dotenv
+
+load_dotenv()
 
 Base.metadata.create_all(bind=engine)
 
