@@ -111,7 +111,7 @@ Aşağıdaki ekran görüntüsü, Sprint 1'deki görevlerimizin ClickUp board ü
 
 ---
 
-### 📊 Sprint 2 Raporu: Mobil ve Backend'in Yükselişi, Web için Zemin Hazırlığı
+### 📊 Sprint 2 Raporu: Mobil ve Backend'in Bağlantısı, Web için Zemin Hazırlığı
 
 **Dönem:** 7 Temmuz 2025 – 20 Temmuz 2025
 
