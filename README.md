@@ -137,7 +137,7 @@ Günlük toplantılar, özellikle backend ve mobil ekipleri arasındaki entegras
 
 #### **Sprint Board Durumu:**
 Aşağıdaki ekran görüntüsü, Sprint 2'deki görevlerimizin ClickUp board üzerindeki son durumunu göstermektedir.
-![Sprint 2 ClickUp Board](https://via.placeholder.com/1024x768.png?text=Sprint+2+ClickUp+Board)
+![Sprint 2 ClickUp Board](https://github.com/user-attachments/assets/20e078ab-bd70-46b2-a863-28aa8e954c5c)
 
 #### **Ürün Durumu: Ekran Görüntüleri**
 
@@ -146,18 +146,18 @@ Aşağıdaki ekran görüntüsü, Sprint 2'deki görevlerimizin ClickUp board ü
 
 * **Mobil Uygulama - Kimlik Doğrulama Akışı:** Kullanıcıların sisteme dahil olmasını sağlayan modern ve kullanıcı dostu arayüzler.
 
-    ![Mobil Giriş Ekranı](https://via.placeholder.com/400x800.png?text=Mobil+Giriş+Ekranı)
-    ![Mobil Kayıt Ekranı](https://via.placeholder.com/400x800.png?text=Mobil+Kayıt+Ekranı)
+    ![Mobil Giriş Ekranı](https://github.com/user-attachments/assets/786ffa72-2fb7-425a-b9b6-8fe7cd029d57)
+    ![Mobil Kayıt Ekranı](https://github.com/user-attachments/assets/dc35dea2-631e-4d9e-a3da-f92ea6dd5115)
 
 * **Mobil Uygulama - Ana Sayfa ve Profil:** Kullanıcının kimlik doğrulama sonrası karşılandığı, temel modüllere erişim sunan ana sayfa ve profil ekranı.
 
-    ![Mobil Ana Sayfa](https://via.placeholder.com/400x800.png?text=Mobil+Ana+Sayfa)
-    ![Mobil Profil Sayfası](https://via.placeholder.com/400x800.png?text=Mobil+Profil+Sayfası)
+    ![Mobil Ana Sayfa](https://github.com/user-attachments/assets/474424cf-04c1-4ed5-b28f-ac7a188fe443)
+    ![Mobil Profil Sayfası](https://github.com/user-attachments/assets/08557a09-5b2e-45a8-a57d-111854e5a32e)
 
 * **Mobil Uygulama - Diğer Arayüzler:** Uygulamanın diğer temel bileşenleri.
 
-    ![Mobil Ekran 5](https://via.placeholder.com/400x800.png?text=Mobil+Ekran+5)
-    ![Mobil Ekran 6](https://via.placeholder.com/400x800.png?text=Mobil+Ekran+6)
+    ![Mobil Ekran 5](https://github.com/user-attachments/assets/81ac4f8c-f612-4eb7-bc7c-f5a4cc89181e)
+    ![Mobil Ekran 6](https://github.com/user-attachments/assets/02abcd3a-6c6f-41b2-885d-bea5155cd37b)
 
 </details>
 
