@@ -18,7 +18,7 @@ Athena, dijital dünyada siber güvenlik farkındalığını artırmak ve kullan
 
 Projemizi Scrum metodolojisiyle yönetiyoruz. ClickUp'ı ana proje yönetim aracımız olarak kullanıyor ve Daily Scrum toplantıları, Sprint Review'ler ve Sprint Retrospektifleri düzenli olarak yapıyoruz.
 
-Proje görevlerimizin detaylı takibi için [ClickUp Sprint 1 Görevleri](https://app.clickup.com/90181414742/v/li/901809301383) linkini ziyaret edebilirsiniz.
+Proje görevlerimizin detaylı takibi için [ClickUp Sprint 1-2-3](https://app.clickup.com/90181414742/v/o/f/90186151144?pr=90185380407) linkini ziyaret edebilirsiniz.
 
 ### Git Branching Stratejisi
 
