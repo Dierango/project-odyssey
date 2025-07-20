@@ -8,14 +8,14 @@ load_dotenv()
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="Project Odyssey API",
-    description="A FastAPI backend application",
+    title="Athena API",
+    description="A FastAPI backend application for Athena",
     version="1.0.0"
 )
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to Project Odyssey API", "docs": "/docs"}
+    return {"message": "Welcome to Athena API", "docs": "/docs"}
 
 app.include_router(health.router)
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
