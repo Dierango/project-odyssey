@@ -22,16 +22,25 @@ app/mobile/project-odyssey-mobile/GoogleService-Info.plist
 # Untracked path from git status
 app/mobile/.expo/
 
-# Common logs
+# Logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Common editor directories
-.idea/
-.vscode/
-
-# OS generated files
+# OS generated
 .DS_Store
 Thumbs.db
+
+# Python
+venv/
+.venv/
+__pycache__/
+
+# Env
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/

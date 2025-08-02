@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from app.routes import health, auth
+from fastapi.middleware.cors import CORSMiddleware
+from app.routes import health, auth, chat
 from app.database.database import engine, Base
 from dotenv import load_dotenv
 
@@ -19,3 +20,12 @@ def read_root():
 
 app.include_router(health.router)
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
+app.include_router(chat.router, prefix="/chat", tags=["chat"])
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

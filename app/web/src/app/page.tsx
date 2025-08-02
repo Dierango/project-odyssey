@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 
 const features = [
   {
@@ -28,6 +29,7 @@ export default function LandingPage() {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
   return (
+    
     <main className="font-sans text-gray-100 bg-gradient-to-br from-[#0b1120] via-[#14213d] to-[#1f2937] min-h-screen scroll-smooth">
       {/* Hamburger Menu Button */}
       <button
@@ -40,6 +42,7 @@ export default function LandingPage() {
           <span className="block w-6 h-0.5 bg-white" />
         </div>
       </button>
+      <Navbar />
 
       {/* Sidebar Drawer */}
       <div
@@ -61,16 +64,9 @@ export default function LandingPage() {
           ))}
         </nav>
       </div>
+      
 
-      {/* Sticky Navbar */}
-      <header className="sticky top-0 z-40 bg-[#0b1120]/80 backdrop-blur border-b border-white/10 md:flex justify-between items-center px-8 py-4">
-        <h1 className="text-xl font-bold text-white">Athena</h1>
-        <nav className="space-x-6">
-          <a href="#simulasyon" className="hover:text-indigo-400">Simülasyon</a>
-          <a href="#Analiz" className="hover:text-indigo-400">Analiz</a>
-          <a href="#chatbot" className="hover:text-indigo-400">Athena</a>
-        </nav>
-      </header>
+      
 
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24">
@@ -140,6 +136,10 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
+       <footer className="bg-gray-800 p-4 text-center text-white">
+        &copy; 2025 Athena
+      </footer>
+
     </main>
   );
 }

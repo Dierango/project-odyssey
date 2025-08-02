@@ -17,13 +17,11 @@ import { colors } from '../styles/colors';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 
-// Define the type for the navigation prop
 type LoginScreenNavigationProp = StackNavigationProp<
   Record<string, undefined>,
   'Login'
 >;
 
-// Define the props for the LoginScreen component
 type Props = {
   navigation: LoginScreenNavigationProp;
 };

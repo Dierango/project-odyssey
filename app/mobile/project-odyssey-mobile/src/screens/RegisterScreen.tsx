@@ -17,13 +17,11 @@ import { colors } from '../styles/colors';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 
-// Define the type for the navigation prop
 type RegisterScreenNavigationProp = StackNavigationProp<
   Record<string, undefined>,
   'Register'
 >;
 
-// Define the props for the RegisterScreen component
 type Props = {
   navigation: RegisterScreenNavigationProp;
 };

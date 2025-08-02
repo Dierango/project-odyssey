@@ -5,13 +5,11 @@ import { colors } from '../styles/colors';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 
-// Define the type for the navigation prop
 type LoadingScreenNavigationProp = StackNavigationProp<
   Record<string, undefined>,
   'Loading'
 >;
 
-// Define the props for the LoadingScreen component
 type Props = {
   navigation: LoadingScreenNavigationProp;
 };
