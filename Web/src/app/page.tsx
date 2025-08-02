@@ -42,7 +42,7 @@ export default function LandingPage() {
           <span className="block w-6 h-0.5 bg-white" />
         </div>
       </button>
-      <Navbar />
+      
 
       {/* Sidebar Drawer */}
       <div

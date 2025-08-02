@@ -11,10 +11,10 @@ export default function Navbar() {
       </div>
       <div className="space-x-6">
         {/* Her bir Link'e 'text-white' ve 'hover:text-indigo-400' ekledik */}
-        <Link href="#simulasyon" className="text-white hover:text-indigo-400">
+        <Link href="/simulation" className="text-white hover:text-indigo-400">
           Simülasyonlar
         </Link>
-        <Link href="#Analiz" className="text-white hover:text-indigo-400">
+        <Link href="/analysis" className="text-white hover:text-indigo-400">
           Analiz
         </Link>
         <Link href="/chatbot" className="text-white hover:text-indigo-400">

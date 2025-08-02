@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-/*import Navbar from "@/components/Navbar"; // Navbar bileşenini import et*/
+import Navbar from "@/components/Navbar"; // Navbar bileşenini import et (yorum satırı kalktı)
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased bg-gray-900 text-white min-h-screen flex flex-col`}
       >
-        {/*<Navbar /> {/* Navbar burada kalmalı */}
+        <Navbar /> {/* Navbar burada kalmalı (yorum satırı kalktı) */}
         <main className="flex-grow">{children}</main>
         {/* Footer buradan kaldırıldı */}
       </body>
