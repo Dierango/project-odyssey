@@ -79,11 +79,11 @@ const HomeScreen = ({ navigation }) => {
             <FontAwesome5 name="robot" size={24} color="#fff" />
             <Text style={styles.featureText}>AI Cyber Assistant</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.featureCard} onPress={() => navigation.navigate('PhishingGame')}>
+          <TouchableOpacity style={styles.featureCard} onPress={() => navigation.navigate('Phishing Game')}>
             <FontAwesome5 name="fish" size={24} color="#fff" />
             <Text style={styles.featureText}>Phishing Game</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.featureCard} onPress={() => navigation.navigate('DigitalFootprint')}>
+          <TouchableOpacity style={styles.featureCard} onPress={() => navigation.navigate('Digital Footprint')}>
             <FontAwesome5 name="user-secret" size={24} color="#fff" />
             <Text style={styles.featureText}>Digital Footprint</Text>
           </TouchableOpacity>

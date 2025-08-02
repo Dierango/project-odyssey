@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useFocusEffect } from '@react-navigation/native';
 import {
   View,
   Text,
@@ -228,6 +229,30 @@ const PhishingGameScreen = ({ navigation }: { navigation: any }) => {
     setScenarios(shuffled);
   }, []);
 
+  // Reset game state when screen comes into focus
+  useFocusEffect(
+    useCallback(() => {
+      // Reset game to initial state when user navigates back to this screen
+      setGameStarted(false);
+      setGameCompleted(false);
+      setCurrentScenario(0);
+      setSelectedAnswer(null);
+      setShowExplanation(false);
+      setShowRedFlags(false);
+      setGameStats({
+        score: 0,
+        totalQuestions: 0,
+        correctAnswers: 0,
+        streak: 0,
+        level: 1
+      });
+      
+      // Shuffle scenarios again for freshness
+      const shuffled = [...PHISHING_SCENARIOS].sort(() => Math.random() - 0.5);
+      setScenarios(shuffled);
+    }, [])
+  );
+
   const currentScenarioData = scenarios[currentScenario];
 
   const startGame = useCallback(() => {
@@ -306,16 +331,19 @@ const PhishingGameScreen = ({ navigation }: { navigation: any }) => {
       <ImageBackground source={require('../assets/home-bg.png')} style={styles.background}>
         <LinearGradient
           colors={['rgba(0,0,0,0.4)', 'rgba(0,0,0,0.7)']}
-          style={[styles.gradient, { paddingTop: insets.top }]}
+          style={styles.gradient}
         >
           <TouchableOpacity 
             style={[styles.backButton, { top: insets.top + 20 }]} 
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.navigate('Home')}
           >
             <FontAwesome5 name="arrow-left" size={24} color="#fff" />
           </TouchableOpacity>
           
-          <ScrollView contentContainerStyle={styles.introContainer} showsVerticalScrollIndicator={false}>
+          <ScrollView 
+            contentContainerStyle={[styles.introContainer, { paddingTop: insets.top + 80 }]} 
+            showsVerticalScrollIndicator={false}
+          >
             <Animatable.View animation="fadeInDown" style={styles.introHeader}>
               <FontAwesome5 name="shield-alt" size={60} color={colors.primary} />
               <Text style={styles.introTitle}>Phishing Defense Game</Text>
@@ -419,7 +447,7 @@ const PhishingGameScreen = ({ navigation }: { navigation: any }) => {
               <TouchableOpacity style={styles.playAgainButton} onPress={restartGame}>
                 <Text style={styles.playAgainText}>🔄 Play Again</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.homeButton} onPress={() => navigation.goBack()}>
+              <TouchableOpacity style={styles.homeButton} onPress={() => navigation.navigate('Home')}>
                 <Text style={styles.homeText}>🏠 Back to Home</Text>
               </TouchableOpacity>
             </View>
@@ -441,7 +469,7 @@ const PhishingGameScreen = ({ navigation }: { navigation: any }) => {
       >
         {/* Header with stats */}
         <View style={[styles.gameHeader, { paddingTop: insets.top + 10 }]}>
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Home')}>
             <FontAwesome5 name="arrow-left" size={20} color="#fff" />
           </TouchableOpacity>
           
@@ -704,6 +732,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: dimensions.spacing.md,
     paddingBottom: dimensions.spacing.sm,
+    backgroundColor: 'transparent',
   },
   statsHeader: {
     flexDirection: 'row',
@@ -1033,9 +1062,9 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   backButton: {
-    backgroundColor: 'rgba(0,0,0,0.3)',
-    padding: dimensions.spacing.sm,
-    borderRadius: 20,
+    position: 'absolute',
+    left: 20,
+    zIndex: 1,
   },
 
   // Legacy styles for compatibility
