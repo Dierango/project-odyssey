@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from app.routes import health, auth
+from app.routes import health, auth, chat
 from app.database.database import engine, Base
+from app.models import user, chat as chat_model
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,3 +20,4 @@ def read_root():
 
 app.include_router(health.router)
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
+app.include_router(chat.router, prefix="/api/v1", tags=["chat"])

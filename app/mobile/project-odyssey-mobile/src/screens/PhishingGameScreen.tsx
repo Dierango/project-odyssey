@@ -1,51 +1,49 @@
 import React from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   ImageBackground,
-  SafeAreaView,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { colors } from '../styles/colors';
 
 const PhishingGameScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
   return (
     <ImageBackground
-      source={require('../assets/home-bg.png')} 
+      source={require('../assets/home-bg.png')}
       style={styles.background}
     >
-      <SafeAreaView style={styles.container}>
-        <LinearGradient
-          colors={['rgba(0,0,0,0.3)', 'rgba(0,0,0,0.5)']}
-          style={styles.gradient}
-        >
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <FontAwesome5 name="arrow-left" size={24} color="#fff" />
+      <LinearGradient
+        colors={['rgba(0,0,0,0.3)', 'rgba(0,0,0,0.5)']}
+        style={[styles.gradient, { paddingBottom: insets.bottom }]}>
+        <TouchableOpacity style={[styles.backButton, { top: insets.top + 20 }]} onPress={() => navigation.goBack()}>
+          <FontAwesome5 name="arrow-left" size={24} color="#fff" />
+        </TouchableOpacity>
+        <View style={[styles.header, { paddingTop: insets.top }]}>
+          <Text style={styles.title}>Phishing Game</Text>
+          <Text style={styles.subtitle}>Test your awareness</Text>
+        </View>
+
+        <View style={styles.scenarioContainer}>
+          <Text style={styles.scenarioText}>
+            You receive an email from a well-known company stating that you have won a prize. The email asks you to click a link to claim it. What should you do?
+          </Text>
+        </View>
+
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Click the Link</Text>
           </TouchableOpacity>
-          <View style={styles.header}>
-            <Text style={styles.title}>Phishing Game</Text>
-            <Text style={styles.subtitle}>Test your awareness</Text>
-          </View>
-
-          <View style={styles.scenarioContainer}>
-            <Text style={styles.scenarioText}>
-              You receive an email from a well-known company stating that you have won a prize. The email asks you to click a link to claim it. What should you do?
-            </Text>
-          </View>
-
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Click the Link</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Delete the Email</Text>
-            </TouchableOpacity>
-          </View>
-        </LinearGradient>
-      </SafeAreaView>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Delete the Email</Text>
+          </TouchableOpacity>
+        </View>
+      </LinearGradient>
     </ImageBackground>
   );
 };
@@ -64,7 +62,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   header: {
+    width: '100%',
+    paddingHorizontal: 20,
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 40,
   },
   title: {
@@ -108,7 +109,6 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 40,
     left: 20,
     zIndex: 1,
   },

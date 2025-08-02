@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useSafeAreaInsets, SafeAreaView } from 'react-native-safe-area-context';
 import {
   View,
   Text,
@@ -6,13 +7,13 @@ import {
   TouchableOpacity,
   Animated,
   ImageBackground,
-  SafeAreaView,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { colors } from '../styles/colors';
 
 const HomeScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
   const [menuOpen, setMenuOpen] = useState(false);
   const animation = useRef(new Animated.Value(0)).current;
 
@@ -64,44 +65,30 @@ const HomeScreen = ({ navigation }) => {
       source={require('../assets/home-bg.png')}
       style={styles.background}
     >
-      <SafeAreaView style={styles.container}>
-        <LinearGradient
-          colors={['rgba(0,0,0,0.3)', 'rgba(0,0,0,0.5)']}
-          style={styles.gradient}
-        >
-          <View style={styles.header}>
-            <Text style={styles.title}>Welcome to Athena</Text>
-            <Text style={styles.subtitle}>Your personal AI companion</Text>
-          </View>
+      <LinearGradient
+        colors={['rgba(0,0,0,0.3)', 'rgba(0,0,0,0.5)']}
+        style={[styles.gradient, { paddingBottom: insets.bottom }]}
+      >
+        <View style={[styles.header, { paddingTop: insets.top + 20 }]}>
+          <Text style={styles.title}>Welcome to Athena</Text>
+          <Text style={styles.subtitle}>Your personal AI companion</Text>
+        </View>
 
-          <View style={styles.chatContainer}>
-            {/* Chat interface will be built here */}
-            <Text style={styles.chatPlaceholder}>The chat interface is coming soon!</Text>
-          </View>
-
-          <Animated.View style={[styles.menuButton, digitalFootprintButtonStyle]}>
-            <TouchableOpacity
-              style={styles.menuItem}
-              onPress={() => navigateToScreen('Digital Footprint')}
-            >
-              <FontAwesome5 name="user-secret" size={24} color="#fff" />
-            </TouchableOpacity>
-          </Animated.View>
-
-          <Animated.View style={[styles.menuButton, phishingButtonStyle]}>
-            <TouchableOpacity
-              style={styles.menuItem}
-              onPress={() => navigateToScreen('Phishing Game')}
-            >
-              <FontAwesome5 name="fish" size={24} color="#fff" />
-            </TouchableOpacity>
-          </Animated.View>
-
-          <TouchableOpacity style={styles.fab} onPress={toggleMenu}>
-            <FontAwesome5 name={menuOpen ? 'times' : 'bars'} size={24} color="#fff" />
+        <View style={styles.featuresContainer}>
+          <TouchableOpacity style={styles.featureCard} onPress={() => navigation.navigate('Chat')}>
+            <FontAwesome5 name="robot" size={24} color="#fff" />
+            <Text style={styles.featureText}>AI Cyber Assistant</Text>
           </TouchableOpacity>
-        </LinearGradient>
-      </SafeAreaView>
+          <TouchableOpacity style={styles.featureCard} onPress={() => navigation.navigate('PhishingGame')}>
+            <FontAwesome5 name="fish" size={24} color="#fff" />
+            <Text style={styles.featureText}>Phishing Game</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.featureCard} onPress={() => navigation.navigate('DigitalFootprint')}>
+            <FontAwesome5 name="user-secret" size={24} color="#fff" />
+            <Text style={styles.featureText}>Digital Footprint</Text>
+          </TouchableOpacity>
+        </View>
+      </LinearGradient>
     </ImageBackground>
   );
 };
@@ -118,9 +105,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 20,
   },
   header: {
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 40,
   },
   title: {
@@ -134,23 +123,28 @@ const styles = StyleSheet.create({
     color: '#d0d0d0',
     marginTop: 10,
   },
-  chatContainer: {
-    flex: 1,
-    width: '90%',
-    backgroundColor: 'rgba(255,255,255,0.1)',
-    borderRadius: 20,
-    padding: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
+  featuresContainer: {
+    width: '100%',
+    paddingHorizontal: 20,
   },
-  chatPlaceholder: {
+  featureCard: {
+    backgroundColor: 'rgba(255,255,255,0.1)',
+    borderRadius: 15,
+    padding: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  featureText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginLeft: 15,
   },
   fab: {
     position: 'absolute',
     bottom: 30,
-    right: 30,
+    right: 20,
     width: 60,
     height: 60,
     borderRadius: 30,
@@ -162,7 +156,7 @@ const styles = StyleSheet.create({
   menuButton: {
     position: 'absolute',
     bottom: 30,
-    right: 30,
+    right: 20,
     width: 60,
     height: 60,
     borderRadius: 30,

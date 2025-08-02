@@ -1,11 +1,11 @@
 import React from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   ImageBackground,
-  SafeAreaView,
   ScrollView,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -14,6 +14,7 @@ import { logout } from '../services/auth';
 import { colors } from '../styles/colors';
 
 const ProfileScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
   const handleLogout = async () => {
     await logout();
     navigation.navigate('Auth');
@@ -21,47 +22,44 @@ const ProfileScreen = ({ navigation }) => {
 
   return (
     <ImageBackground
-      source={require('../assets/home-bg.png')} 
+      source={require('../assets/home-bg.png')}
       style={styles.background}
     >
-      <SafeAreaView style={styles.container}>
-        <LinearGradient
-          colors={['rgba(0,0,0,0.3)', 'rgba(0,0,0,0.5)']}
-          style={styles.gradient}
-        >
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <FontAwesome5 name="arrow-left" size={24} color="#fff" />
-          </TouchableOpacity>
-          <View style={styles.header}>
-            <Text style={styles.title}>Profile</Text>
-            <Text style={styles.subtitle}>Manage your account</Text>
-          </View>
+      <LinearGradient
+        colors={['rgba(0,0,0,0.3)', 'rgba(0,0,0,0.5)']}
+        style={[styles.gradient, { paddingBottom: insets.bottom }]}>
+        <TouchableOpacity style={[styles.backButton, { top: insets.top + 20 }]} onPress={() => navigation.goBack()}>
+          <FontAwesome5 name="arrow-left" size={24} color="#fff" />
+        </TouchableOpacity>
+        <View style={[styles.header, { paddingTop: insets.top }]}>
+          <Text style={styles.title}>Profile</Text>
+          <Text style={styles.subtitle}>Manage your account</Text>
+        </View>
 
-          <ScrollView style={styles.menuContainer}>
-            <TouchableOpacity style={styles.menuItem}>
-              <FontAwesome5 name="user-edit" size={20} color="#fff" />
-              <Text style={styles.menuText}>Edit Profile</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem}>
-              <FontAwesome5 name="shield-alt" size={20} color="#fff" />
-              <Text style={styles.menuText}>Security</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem}>
-              <FontAwesome5 name="bell" size={20} color="#fff" />
-              <Text style={styles.menuText}>Notifications</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem}>
-              <FontAwesome5 name="question-circle" size={20} color="#fff" />
-              <Text style={styles.menuText}>Help Center</Text>
-            </TouchableOpacity>
-          </ScrollView>
-
-          <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-            <FontAwesome5 name="sign-out-alt" size={24} color="#fff" />
-            <Text style={styles.logoutText}>Logout</Text>
+        <ScrollView style={styles.menuContainer}>
+          <TouchableOpacity style={styles.menuItem}>
+            <FontAwesome5 name="user-edit" size={20} color="#fff" />
+            <Text style={styles.menuText}>Edit Profile</Text>
           </TouchableOpacity>
-        </LinearGradient>
-      </SafeAreaView>
+          <TouchableOpacity style={styles.menuItem}>
+            <FontAwesome5 name="shield-alt" size={20} color="#fff" />
+            <Text style={styles.menuText}>Security</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem}>
+            <FontAwesome5 name="bell" size={20} color="#fff" />
+            <Text style={styles.menuText}>Notifications</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem}>
+            <FontAwesome5 name="question-circle" size={20} color="#fff" />
+            <Text style={styles.menuText}>Help Center</Text>
+          </TouchableOpacity>
+        </ScrollView>
+
+        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+          <FontAwesome5 name="sign-out-alt" size={24} color="#fff" />
+          <Text style={styles.logoutText}>Logout</Text>
+        </TouchableOpacity>
+      </LinearGradient>
     </ImageBackground>
   );
 };
@@ -80,7 +78,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   header: {
+    width: '100%',
+    paddingHorizontal: 20,
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 40,
   },
   title: {
@@ -128,7 +129,6 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 40,
     left: 20,
     zIndex: 1,
   },

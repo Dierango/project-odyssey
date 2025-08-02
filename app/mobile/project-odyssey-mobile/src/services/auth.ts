@@ -14,7 +14,7 @@ export const login = async (email: string, password: string) => {
   try {
     const response = await api.post('/auth/login', { email, password });
     const { access_token } = response.data;
-    await SecureStore.setItemAsync('accessToken', access_token);
+    await SecureStore.setItemAsync('access_token', access_token);
     return response.data;
   } catch (error: any) {
     throw error.response.data;
@@ -22,9 +22,9 @@ export const login = async (email: string, password: string) => {
 };
 
 export const logout = async () => {
-  await SecureStore.deleteItemAsync('accessToken');
+  await SecureStore.deleteItemAsync('access_token');
 };
 
 export const getAccessToken = async () => {
-  return await SecureStore.getItemAsync('accessToken');
+  return await SecureStore.getItemAsync('access_token');
 };

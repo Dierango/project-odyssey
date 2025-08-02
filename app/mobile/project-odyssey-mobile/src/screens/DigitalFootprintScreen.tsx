@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   View,
   Text,
@@ -6,42 +7,40 @@ import {
   TextInput,
   TouchableOpacity,
   ImageBackground,
-  SafeAreaView,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { colors } from '../styles/colors';
 
 const DigitalFootprintScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
   return (
     <ImageBackground
-      source={require('../assets/home-bg.png')} 
+      source={require('../assets/home-bg.png')}
       style={styles.background}
     >
-      <SafeAreaView style={styles.container}>
-        <LinearGradient
-          colors={['rgba(0,0,0,0.3)', 'rgba(0,0,0,0.5)']}
-          style={styles.gradient}
-        >
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <FontAwesome5 name="arrow-left" size={24} color="#fff" />
-          </TouchableOpacity>
-          <View style={styles.header}>
-            <Text style={styles.title}>Digital Footprint</Text>
-            <Text style={styles.subtitle}>Check your online presence</Text>
-          </View>
+      <LinearGradient
+        colors={['rgba(0,0,0,0.3)', 'rgba(0,0,0,0.5)']}
+        style={[styles.gradient, { paddingBottom: insets.bottom }]}
+      >
+        <TouchableOpacity style={[styles.backButton, { top: insets.top + 20 }]} onPress={() => navigation.goBack()}>
+          <FontAwesome5 name="arrow-left" size={24} color="#fff" />
+        </TouchableOpacity>
+        <View style={[styles.header, { paddingTop: insets.top }]}>
+          <Text style={styles.title}>Digital Footprint</Text>
+          <Text style={styles.subtitle}>Check your online presence</Text>
+        </View>
 
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your email"
-            placeholderTextColor="#a0a0a0"
-          />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter your email"
+          placeholderTextColor="#a0a0a0"
+        />
 
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Analyze</Text>
-          </TouchableOpacity>
-        </LinearGradient>
-      </SafeAreaView>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Analyze</Text>
+        </TouchableOpacity>
+      </LinearGradient>
     </ImageBackground>
   );
 };
@@ -60,7 +59,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   header: {
+    width: '100%',
+    paddingHorizontal: 20,
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 40,
   },
   title: {
@@ -97,7 +99,6 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 40,
     left: 20,
     zIndex: 1,
   },
