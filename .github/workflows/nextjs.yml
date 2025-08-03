@@ -78,6 +78,9 @@ jobs:
       - name: Build with Next.js
         working-directory: ./app/web
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          CI: true
+          NODE_ENV: production
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
