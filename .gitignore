@@ -35,3 +35,8 @@ yarn-error.log*
 # OS generated files
 .DS_Store
 Thumbs.db
+
+.env
+.env.docker
+CHAT_ENHANCEMENTS.md
+DIGITAL_FOOTPRINT_SETUP.md

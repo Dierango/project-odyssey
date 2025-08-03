@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getAccessToken } from '../services/auth';
 import { colors } from '../styles/colors';
 
@@ -17,6 +18,8 @@ type Props = {
 };
 
 const LoadingScreen = ({ navigation }: Props) => {
+  const insets = useSafeAreaInsets();
+
   useEffect(() => {
     const checkToken = async () => {
       const accessToken = await getAccessToken();
@@ -31,7 +34,7 @@ const LoadingScreen = ({ navigation }: Props) => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
       <ActivityIndicator size="large" color={colors.primary} />
     </View>
   );
@@ -42,7 +45,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.background,
   },
 });
 

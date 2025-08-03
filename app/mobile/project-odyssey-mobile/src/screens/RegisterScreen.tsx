@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   View,
   Text,
   TextInput,
   StyleSheet,
-  Alert,
   TouchableOpacity,
   Animated,
   ImageBackground,
-  KeyboardAvoidingView,
-  Platform,
+  Image,
+  ScrollView,
+  ActivityIndicator,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { register } from '../services/auth';
@@ -29,22 +30,34 @@ type Props = {
 };
 
 const RegisterScreen = ({ navigation }: Props) => {
+  const insets = useSafeAreaInsets();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [animation] = useState(new Animated.Value(0));
 
   const handleRegister = async () => {
-    if (password !== confirmPassword) {
-      Alert.alert('Error', 'Passwords do not match');
+    if (!email || !password || !confirmPassword) {
+      setError('Please fill in all fields');
       return;
     }
-
+    if (password !== confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+    setLoading(true);
+    setError('');
     try {
       await register(email, password);
       navigation.navigate('Login');
-    } catch (error: any) {
-      Alert.alert('Registration Failed', error.detail || 'An unexpected error occurred.');
+    } catch (err: any) {
+      setError(err.detail || 'An unexpected error occurred.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -69,70 +82,96 @@ const RegisterScreen = ({ navigation }: Props) => {
 
   return (
     <ImageBackground
-      source={require('../assets/register-bg.png')}
+      source={require('../assets/register-bg-no-logo.png')}
       style={styles.background}
     >
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.container}
-      >
+      <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         <LinearGradient
           colors={['rgba(0,0,0,0.3)', 'rgba(0,0,0,0.5)']}
-          style={styles.gradient}
+          style={[styles.gradient, { paddingTop: insets.top, paddingBottom: insets.bottom }]}
         >
-          <Text style={styles.title}>Create Account</Text>
-          <Text style={styles.subtitle}>Join the community</Text>
+          <View style={styles.contentContainer}>
+            <Image source={require('../assets/logo.png')} style={styles.logo} />
+            <Text style={styles.title}>Create Account</Text>
+            <Text style={styles.subtitle}>Join the community</Text>
 
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            placeholderTextColor="#a0a0a0"
-            value={email}
-            onChangeText={setEmail}
-            autoCapitalize="none"
-            keyboardType="email-address"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            placeholderTextColor="#a0a0a0"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Confirm Password"
-            placeholderTextColor="#a0a0a0"
-            value={confirmPassword}
-            onChangeText={setConfirmPassword}
-            secureTextEntry
-          />
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              placeholderTextColor="#a0a0a0"
+              value={email}
+              onChangeText={(text) => {
+                setEmail(text);
+                setError('');
+              }}
+              autoCapitalize="none"
+              keyboardType="email-address"
+            />
+            <View style={styles.passwordContainer}>
+              <TextInput
+                style={styles.passwordInput}
+                placeholder="Password"
+                placeholderTextColor="#a0a0a0"
+                value={password}
+                onChangeText={(text) => {
+                  setPassword(text);
+                  setError('');
+                }}
+                secureTextEntry={!passwordVisible}
+              />
+              <TouchableOpacity onPress={() => setPasswordVisible(!passwordVisible)}>
+                <Text style={styles.eyeIcon}>{passwordVisible ? 'Hide' : 'Show'}</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.passwordContainer}>
+              <TextInput
+                style={styles.passwordInput}
+                placeholder="Confirm Password"
+                placeholderTextColor="#a0a0a0"
+                value={confirmPassword}
+                onChangeText={(text) => {
+                  setConfirmPassword(text);
+                  setError('');
+                }}
+                secureTextEntry={!confirmPasswordVisible}
+              />
+              <TouchableOpacity onPress={() => setConfirmPasswordVisible(!confirmPasswordVisible)}>
+                <Text style={styles.eyeIcon}>{confirmPasswordVisible ? 'Hide' : 'Show'}</Text>
+              </TouchableOpacity>
+            </View>
 
-          <TouchableOpacity
-            onPressIn={startAnimation}
-            onPressOut={() => animation.setValue(0)}
-            onPress={handleRegister}
-            activeOpacity={0.8}
-          >
-            <Animated.View style={[styles.button, animatedStyles]}>
-              <LinearGradient
-                colors={['rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.1)']}
-                style={styles.glass}
-              >
-                <Text style={styles.buttonText}>Register</Text>
-              </LinearGradient>
-            </Animated.View>
-          </TouchableOpacity>
+            {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
-          <TouchableOpacity
-            style={styles.linkButton}
-            onPress={() => navigation.navigate('Login')}
-          >
-            <Text style={styles.linkText}>Already have an account? Login</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPressIn={startAnimation}
+              onPressOut={() => animation.setValue(0)}
+              onPress={handleRegister}
+              activeOpacity={0.8}
+              disabled={loading}
+            >
+              <Animated.View style={[styles.button, animatedStyles]}>
+                <LinearGradient
+                  colors={['rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.1)']}
+                  style={styles.glass}
+                >
+                  {loading ? (
+                    <ActivityIndicator color="#fff" />
+                  ) : (
+                    <Text style={styles.buttonText}>Register</Text>
+                  )}
+                </LinearGradient>
+              </Animated.View>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.linkButton}
+              onPress={() => navigation.navigate('Login')}
+            >
+              <Text style={styles.linkText}>Already have an account? Login</Text>
+            </TouchableOpacity>
+          </View>
         </LinearGradient>
-      </KeyboardAvoidingView>
+      </ScrollView>
     </ImageBackground>
   );
 };
@@ -142,16 +181,24 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
   },
-  container: {
+  scrollViewContainer: {
+    flexGrow: 1,
+  },
+  gradient: {
     flex: 1,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  gradient: {
+  contentContainer: {
     width: '90%',
-    padding: 20,
-    borderRadius: 20,
     alignItems: 'center',
+  },
+  logo: {
+    width: 200,
+    height: 200,
+    resizeMode: 'contain',
+    marginBottom: 20,
   },
   title: {
     fontSize: 32,
@@ -173,6 +220,29 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 15,
     fontSize: 16,
+  },
+  passwordContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    height: 50,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    borderRadius: 10,
+    marginBottom: 15,
+  },
+  passwordInput: {
+    flex: 1,
+    paddingHorizontal: 15,
+    color: '#fff',
+    fontSize: 16,
+  },
+  eyeIcon: {
+    padding: 10,
+    color: '#fff',
+  },
+  errorText: {
+    color: 'red',
+    marginBottom: 10,
   },
   button: {
     marginTop: 20,
