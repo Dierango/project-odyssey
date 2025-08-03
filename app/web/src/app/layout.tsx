@@ -1,8 +1,9 @@
 // app/layout.tsx
-import type { Metadata } from "next";
+"use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar"; // Navbar bileşenini import et (yorum satırı kalktı)
+import Navbar from "@/components/Navbar"; 
+import { UserProvider } from "@/contexts/UserContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,11 +15,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Athena",
-  description: "Yapay zeka destekli siber güvenlik uygulaması",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,9 +25,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased bg-gray-900 text-white min-h-screen flex flex-col`}
       >
-        <Navbar /> {/* Navbar burada kalmalı (yorum satırı kalktı) */}
-        <main className="flex-grow">{children}</main>
-        {/* Footer buradan kaldırıldı */}
+        <UserProvider>
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+        </UserProvider>
       </body>
     </html>
   );

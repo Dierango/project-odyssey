@@ -10,4 +10,4 @@ def create_chat_message(db: Session, user_id: int, message: ChatMessageCreate):
     return db_message
 
 def get_chat_history(db: Session, user_id: int):
-    return db.query(ChatMessage).filter(ChatMessage.user_id == user_id).all()
+    return db.query(ChatMessage).filter(ChatMessage.user_id == user_id).order_by(ChatMessage.created_at.asc()).all()

@@ -6,6 +6,10 @@ class UserBase(BaseModel):
 class UserCreate(UserBase):
     password: str
 
+class ChangePassword(BaseModel):
+    current_password: str
+    new_password: str
+
 class User(UserBase):
     id: int
     is_active: bool
