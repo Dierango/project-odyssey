@@ -189,6 +189,95 @@ Aşağıdaki ekran görüntüsü, Sprint 2'deki görevlerimizin ClickUp board ü
 
 ---
 
+### 📊 Sprint 3 Raporu: Web Uygulamasının Tamamlanması ve GitHub Pages Entegrasyonu
+
+**Dönem:** 21 Temmuz 2025 – 3 Ağustos 2025
+
+#### **Sprint Hedefi:**
+Bu sprint'in ana hedefi, Sprint 2'de kalan web arayüzü görevlerini tamamlamak, kapsamlı bir web uygulaması geliştirmek ve ürünü GitHub Pages üzerinden canlı ortama çıkarmaktı. Ayrıca, backend ve web entegrasyonunu sağlayarak kullanıcı deneyimini mobil ile eşdeğer seviyeye getirmek hedeflendi.
+
+#### **Tamamlanan Başlıca Görevler:**
+* **Web Ekibi:** Profil, Hakkında, Yardım, Phishing Oyunu, Dijital Ayak İzi Analizi, Yapay Zeka ve Ana Sayfa olmak üzere 7 temel modülü başarıyla geliştirdi ve kullanıcı dostu arayüzlerle entegre etti.
+* **DevOps ve Deployment:** GitHub Pages entegrasyonu gerçekleştirilerek web uygulaması [https://dierango.github.io/project-odyssey](https://dierango.github.io/project-odyssey) adresinden erişilebilir hale getirildi.
+* **Backend Entegrasyon:** Web uygulaması ile backend servisleri arasında güvenli bağlantı kuruldu, ancak Google Cloud bağlantısı sorunları nedeniyle demo sunumları lokal ortamda gerçekleştirildi.
+
+#### **Sprint Hızı (Velocity):**
+* **Tahmin Edilen Puan:** 27 Puan
+* **Tamamlanan Puan:** 21 Puan
+
+Takım bu sprint'te 21 puanlık bir hız sergiledi. Sprint 2'ye kıyasla önemli bir iyileşme gözlemlendi ve hedeflenen puanın %78'ini başarıyla tamamladı. Bu, takımın sprint planlama becerilerinde gelişim kaydettiğini gösterdi.
+
+#### **Daily Scrum Özeti:**
+Web ekibinin yoğun çalışması sayesinde günlük toplantılar daha verimli geçti. Özellikle modüller arası UI/UX tutarlılığının sağlanması ve GitHub Pages deployment sürecinde yaşanan teknik zorluklar, günlük toplantılarda hızla çözüme kavuşturuldu.
+
+* **Önemli Çıktılar:**
+    * GitHub Pages ile canlı ortama çıkarma sürecinde routing ve build konfigürasyonları konusunda yaşanan teknik zorluklar, ekip iş birliği ile çözüldü.
+    * Google Cloud bağlantı sorunları sprint boyunca devam etti, bu nedenle demo stratejisi lokal sunumlara adapte edildi.
+
+#### **Sprint Board Durumu:**
+Aşağıdaki ekran görüntüsü, Sprint 3'teki görevlerimizin ClickUp board üzerindeki son durumunu göstermektedir.
+![Sprint 3 ClickUp Board - Placeholder]()
+
+#### **Ürün Durumu: Ekran Görüntüleri**
+
+<details>
+<summary>Açmak için tıklayın</summary>
+
+* **Web Uygulaması - Ana Sayfa ve Profil:** Kullanıcıların Athena'ya giriş yaptıktan sonra karşılandığı modern ana sayfa ve kişisel profil yönetimi arayüzü.
+
+    ![Web Ana Sayfa - Placeholder]()
+    ![Web Profil Sayfası - Placeholder]()
+
+* **Web Uygulaması - Eğitim Modülleri:** Dijital ayak izi analizi ve phishing farkındalık oyunu gibi interaktif eğitim modülleri.
+
+    ![Web Dijital Ayak İzi - Placeholder]()
+    ![Web Phishing Oyunu - Placeholder]()
+
+* **Web Uygulaması - Yapay Zeka ve Destek:** Athena chatbot arayüzü ve kullanıcı yardım merkezi.
+
+    ![Web AI Chatbot - Placeholder]()
+    ![Web Yardım Sayfası - Placeholder]()
+
+* **Web Uygulaması - Hakkında Sayfası:** Athena'nın misyonu ve vizyonu hakkında bilgi veren sayfa.
+
+    ![Web Hakkında Sayfası - Placeholder]()
+
+</details>
+
+#### **Canlı Demo ve GitHub Pages:**
+Web uygulaması [https://dierango.github.io/project-odyssey](https://dierango.github.io/project-odyssey) adresinden erişilebilir durumdadır. **Not:** Chat ve kullanıcı girişi/kayıt özellikleri Google Cloud bağlantısı olmadığı için şu anda çalışmamaktadır. Tam işlevsellik için lokal demo tercih edilmelidir.
+
+#### **Sprint Review Özeti:**
+3 Ağustos 2025, 18:00'de yapılan Sprint Review'de, web ekibi geliştirilen tüm modülleri canlı GitHub Pages üzerinden sundu. Paydaşlara, Athena'nın artık mobil ve web platformlarında tutarlı bir deneyim sunduğu gösterildi.
+
+* **Önemli Çıktılar/Geri Bildirimler:**
+    * Web uygulamasının görsel tasarımı ve kullanıcı deneyimi oldukça beğenildi.
+    * GitHub Pages entegrasyonu projenin profesyonel görünümünü önemli ölçüde artırdı.
+    * Google Cloud bağlantısının bir sonraki sprint'te mutlaka çözülmesi gerektiği vurgulandı.
+    * Mobil ve web arasındaki özellik tutarlılığının sağlanması takdir edildi.
+
+#### **Sprint Retrospective Özeti:**
+3 Ağustos 2025, 20:00'de yapılan retrospektif toplantısında aşağıdaki sonuçlara ulaştık:
+
+* **Neler İyi Gitti?**
+    * Web ekibinin performansı önceki sprintlere kıyasla dramatik bir iyileşme gösterdi ve hedeflenen tüm temel modüller tamamlandı.
+    * GitHub Pages entegrasyonu beklenenden daha sorunsuz gerçekleşti ve projeye profesyonel bir görünüm kazandırdı.
+    * Takımın sprint planlama becerisi gelişti; tahmin edilen ve tamamlanan puanlar arasındaki fark önemli ölçüde azaldı.
+    * Mobil ve web arasındaki özellik tutarlılığı sağlanarak, kullanıcılar her iki platformda da benzer deneyim yaşayabilir hale geldi.
+
+* **Neler Daha İyi Olabilirdi?**
+    * Google Cloud bağlantı sorunları tüm sprint boyunca devam etti ve çözülemedi, bu da tam işlevsellik testlerini engelledi.
+    * DevOps süreçleri henüz tam olarak otomatikleştirilmemiş durumda, manuel deployment adımları zaman kaybına neden oldu.
+    * Yapay zeka entegrasyonu web tarafında henüz tam olarak optimize edilemedi.
+
+* **Neler Yapacağız (Gelecek Sprintler İçin Aksiyonlar)?**
+    * Bir sonraki sprint'in en yüksek önceliği Google Cloud bağlantı sorunlarını çözmek ve tam işlevsellik sağlamak olacak.
+    * CI/CD pipeline kurarak deployment süreçlerini otomatikleştirmek ve manuel hataları minimize etmek.
+    * Web tarafındaki yapay zeka entegrasyonunu optimize ederek mobil ile aynı seviyeye getirmek.
+    * Kullanıcı testleri düzenleyerek gerçek kullanıcı geri bildirimlerini toplamaya başlamak.
+
+---
+
 ## 🎯 Gelecek Planları
 
 * Kullanıcı kimlik doğrulama süreçlerinin tamamlanması.
