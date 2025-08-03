@@ -270,11 +270,6 @@ Web uygulaması [https://dierango.github.io/project-odyssey](https://dierango.gi
     * DevOps süreçleri henüz tam olarak otomatikleştirilmemiş durumda, manuel deployment adımları zaman kaybına neden oldu.
     * Yapay zeka entegrasyonu web tarafında henüz tam olarak optimize edilemedi.
 
-* **Neler Yapacağız (Gelecek Sprintler İçin Aksiyonlar)?**
-    * Bir sonraki sprint'in en yüksek önceliği Google Cloud bağlantı sorunlarını çözmek ve tam işlevsellik sağlamak olacak.
-    * CI/CD pipeline kurarak deployment süreçlerini otomatikleştirmek ve manuel hataları minimize etmek.
-    * Web tarafındaki yapay zeka entegrasyonunu optimize ederek mobil ile aynı seviyeye getirmek.
-    * Kullanıcı testleri düzenleyerek gerçek kullanıcı geri bildirimlerini toplamaya başlamak.
 
 ---
 
