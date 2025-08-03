@@ -216,7 +216,7 @@ Web ekibinin yoğun çalışması sayesinde günlük toplantılar daha verimli g
 
 #### **Sprint Board Durumu:**
 Aşağıdaki ekran görüntüsü, Sprint 3'teki görevlerimizin ClickUp board üzerindeki son durumunu göstermektedir.
-![Sprint 3 ClickUp Board - Placeholder]()
+![Sprint 3 ClickUp Board](https://github.com/user-attachments/assets/7a2554b9-ce27-41e2-a638-f3aaa37b1e14)
 
 #### **Ürün Durumu: Ekran Görüntüleri**
 
@@ -225,22 +225,22 @@ Aşağıdaki ekran görüntüsü, Sprint 3'teki görevlerimizin ClickUp board ü
 
 * **Web Uygulaması - Ana Sayfa ve Profil:** Kullanıcıların Athena'ya giriş yaptıktan sonra karşılandığı modern ana sayfa ve kişisel profil yönetimi arayüzü.
 
-    ![Web Ana Sayfa - Placeholder]()
-    ![Web Profil Sayfası - Placeholder]()
+    ![Web Ana Sayfa](https://github.com/user-attachments/assets/27be9a0f-eaf7-444e-a4e0-7732c0ff0cce)
+    ![Web Profil Sayfası](https://github.com/user-attachments/assets/999d8215-7394-4b69-aa81-c349d35b071c)
 
 * **Web Uygulaması - Eğitim Modülleri:** Dijital ayak izi analizi ve phishing farkındalık oyunu gibi interaktif eğitim modülleri.
 
-    ![Web Dijital Ayak İzi - Placeholder]()
-    ![Web Phishing Oyunu - Placeholder]()
+    ![Web Dijital Ayak İzi](https://github.com/user-attachments/assets/c46daa18-ab01-485f-994f-1a5993bffa43)
+    ![Web Phishing Oyunu](https://github.com/user-attachments/assets/05268e71-2ca5-4d41-ab82-17914b8e264b)
 
 * **Web Uygulaması - Yapay Zeka ve Destek:** Athena chatbot arayüzü ve kullanıcı yardım merkezi.
 
-    ![Web AI Chatbot - Placeholder]()
-    ![Web Yardım Sayfası - Placeholder]()
+    ![Web AI Chatbot](https://github.com/user-attachments/assets/77eac446-f7a7-430f-8c67-5d201f3060e7)
+    ![Web Yardım Sayfası](https://github.com/user-attachments/assets/b65e41f3-2cc6-47d3-bbe6-3d8823d8b2c4)
 
 * **Web Uygulaması - Hakkında Sayfası:** Athena'nın misyonu ve vizyonu hakkında bilgi veren sayfa.
 
-    ![Web Hakkında Sayfası - Placeholder]()
+    ![Web Hakkında Sayfası](https://github.com/user-attachments/assets/2333ee67-65c0-4b07-baf4-eb2e7d4a0694)
 
 </details>
 
