@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect, FormEvent } from "react";
+import React, { useState, useRef, useEffect, FormEvent, Suspense } from "react";
 import { SendHorizonal } from "lucide-react";
 import { useSearchParams } from 'next/navigation';
 
@@ -26,7 +26,8 @@ const TypingAnimation = () => (
   </div>
 );
 
-export default function ChatbotPage() {
+// Separate component that uses useSearchParams
+function ChatbotContent() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>("");
   const [isTyping, setIsTyping] = useState<boolean>(false);
@@ -268,5 +269,24 @@ export default function ChatbotPage() {
         </>
       )}
     </div>
+  );
+}
+
+// Loading component for Suspense fallback
+function ChatbotLoading() {
+  return (
+    <div className="flex flex-col h-full p-4 items-center justify-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+      <p className="text-gray-400 mt-4">Loading chatbot...</p>
+    </div>
+  );
+}
+
+// Main component with Suspense boundary
+export default function ChatbotPage() {
+  return (
+    <Suspense fallback={<ChatbotLoading />}>
+      <ChatbotContent />
+    </Suspense>
   );
 }
