@@ -5,6 +5,9 @@ import AuthNavigator from './AuthNavigator';
 import MainTabNavigator from './MainTabNavigator';
 import LoadingScreen from '../screens/LoadingScreen';
 import ChatScreen from '../screens/ChatScreen';
+import ChangePasswordScreen from '../screens/ChangePasswordScreen';
+import HelpScreen from '../screens/HelpScreen';
+import AboutScreen from '../screens/AboutScreen';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +19,9 @@ const AppNavigator = () => {
         <Stack.Screen name="Auth" component={AuthNavigator} />
         <Stack.Screen name="Main" component={MainTabNavigator} />
         <Stack.Screen name="Chat" component={ChatScreen} />
+        <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} />
+        <Stack.Screen name="Help" component={HelpScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
